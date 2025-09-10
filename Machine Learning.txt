@@ -1,0 +1,355 @@
+# Machine Learning
+Machine learning is a way of teaching computers to learn from data -- just like we humans learn from experience.
+Instead of programming every step, we give machines lots of data and let them figure out patterns on their own.
+
+YouTube Recommendations -> Learns from watch history
+Spam Detection in Gmail -> Learns patterns in spam emails
+Voice Assistants (Siri, Alexa) -> Learn how to speak
+Self-driving Cars -> Learns to identify stop signs, pedestrians, and roads
+Face Unlock on Phones -> Learns to recognize faces
+
+# Traditional Programming
+Give rules + data -> get result
+Manual logic writing
+
+# Machine Learning
+Give data + result -> get result(model)
+Learn patterns automatically
+
+Machine learning has 3 major types
+1. Supervised learning: Supervised learning is like a student being taught by a teacher. We give the machine input and the correct answer - and it learns to predict. 99% of machine learning application works on supervised learning.
+
+2. Unsupervised learning: In unsupervised learning, we will get the data, but we are not going to predict anything; we will just find patterns, Group similar items, reduce complexity, and spot outliers.
+So unsupervised learning is used with supervised learning to make models
+
+3. Reinforcement learning: We don't teach everything directly; instead, we reward good behaviour and ignore and punish bad actions
+That's the core idea of Reinforcement learning - learning by trial and error. 
+
+
+The steps involved in making a machine learning model:
+1. Problem Definition
+2. Data Collection
+3. Exploratory Data Analysis (EDA)
+4. Data Preprocessing/Cleaning
+5. Feature Selection & Engineering
+6. Split the Dataset
+7. Model Selection
+8. Model Training
+9. Model Evaluation
+10. Hyperparameter Tuning
+11. Model Testing/Validation
+
+# Exploratory Data Analysis (EDA): EDA stands for Exploratory Data Analysis. There are some steps where we explore the data to:
+1. Understand it
+2. Discover patterns
+3. spot anomalies
+4. Generate insights
+5. Decide what to do next
+
+EDA Steps
+1. Viewing the Data
+- head(), tail(), shape, info()
+- What columns do I have? What types of data?
+
+2. Summary Statistics
+- mean, median, mode, std, min, max, quartiles
+- Helps understand the spread and central tendency
+
+3. Value Counts
+- How many unique values are in a column?
+- Great for categorical columns
+
+4. Missing Value Analysis
+- Where are the gaps? What percent of the data is missing?
+
+5. Visualizations
+- Histograms -> distribution of values
+- Box plots -> outliers of spread
+- Bar plots -> comparisons of categories
+- Correlation heatmaps -> linear relationships between numerical features
+- Scatter plots -> bivariate relationships
+
+6. Target Variable Exploration
+- How does our output(like 'charges' in our dataset) relate to other variables?
+
+# Importance of EDA
+- It helps us to identify mistakes, biases, or limitations in the data.
+- It guides the direction of our data cleaning and feature engineering.
+- It gives our audience or stakeholders a "story" or overview of what the data is telling us.
+
+# Data Cleaning
+1. Handling Missing Values
+- Check which columns have missing values(nulls)
+
+2. Strategies to handle:
+- Drop missing rows/columns (only if very few)
+- Impute with: 
+    - Mean/Median -> For numerical data
+    - Mode -> For categorical data
+    - Advanced: Linear regression, KNN, or interpolation(for future learning)
+
+2. Removes Duplicates
+- Detect and drop exact duplicate rows
+
+3. Fix Data Types
+- Convert wrong types(e.g., numbers stores as strings, dates as text)
+
+4. Handle Inconsistent Categories
+- Clean up categorical values like:
+    - "Male", "male", "MALE" -> should all become "male"
+    - "Yes", "yes", "Y" -> unify to one format
+
+5. Detect and Handle Outliers
+- Use boxplots, IQR, and Z-score
+- Handle by:
+    - Removing(if clearly wrong)
+    - Capping(e.g., to 95th percentile)
+
+6. Fix Logic and Domain Errors
+- E.g., age = -5 is invalid, or BMI = 150 likely an error
+- Can replace with mean, median, or remove
+
+# Data Preprocessing: To prepare clean data so it can be analyzed or used in a machine learning model." If Data Cleaning is about fixing mistakes, Data Preprocessing is about transforming valid data into a usable format.
+
+1. Encoding Categorical Variables
+Convert text labels (like "male", "yes", "southeast") into numbers.
+
+Two common methods:
+- Label Encoding (Ordinal): Good for ordered categories like "Low", "Medium", "High"
+- One-Hot Encoding (Nominal): For non-ordered categories like region
+
+2. Feature Transformation (Log, Square root, etc) Used to handle skewed data, like right-skewed or left-skewed data.
+
+3. Feature Scaling (Normalization or Standardization): Bring numerical values to the same scale - especially useful for distance-based algorithms.
+- Normalization (Min-Max Scaling): Scales values between 0 and 1
+- Standardization (Z-score Scaling): Transforms data to have a mean of 0 and a standard deviation of 1
+
+# Feature Engineering: Creating new features or transforming existing ones to expose useful patterns that ML models can learn from.
+- Why do we need it? 
+Because ML models don't understand domain logic, we must provide them with the correct signals.
+
+Common Feature Engineering Techniques in ML:
+1. Mathematical Combinations
+2. Targets-Based Flags
+3. Binning(when it helps)
+4. Time-Based Features(if time exists)
+
+Selecting the most useful features and removing the rest.
+Why is it important?
+- Reduces noise and overfitting
+- Speeds up training
+- Improves model accuracy
+- Makes model interpretation easier
+
+1. Filter Methods (Pure Statistics)
+- Correlation Matrix -> Remove highly correlated features
+- Chi-square test (categorical vs categorical)
+- ANOVA F-test (numerical vs categorical target)
+
+2. Embedded Methods (Selection built into the model)
+- Lasso Regression -> Shrinks coefficients to 0
+- Tree-based models (Random Forest, XGBoost) -> Feature importance scores
+
+# Regression: Regression is a way to predict a number. It helps us understand how one thing changes when another thing changes.
+              Regression is about identifying patterns in numbers, allowing us to make informed predictions.
+
+Start -> Collect Data -> Define Variables -> Split Dataset -> Train Model -> Calculate Coefficients -> Make Predictions -> Evaluate Model -> Model Satisfactory -> Yes/No -> Yes -> Deploy Model
+          -> No -> Adjust Model or Data -> Split Dataset -> Repeat similar task.
+
+# Linear Regression:
+- How we create the Bestfit line 
+Formula Used: y = mx+c
+
+Where m = slope
+      c = intercept
+      x = data points
+      y = prediction
+
+The line on the scatter plot has the minimum residual error, so that is the best-fit line.
+
+# Cost function: It gives the average of the residual errors.
+
+# Gradient descent: It gives the global minimum point, and that point provides the least error.
+
+# Performance Matrices: 1. R^2
+                        2. Adjusted R^2
+
+R^2: Is to check how good our model is
+Formula = 1 - Sum of residuals/Sum of total
+
+Adjusted R^2 Formula = 1 - (1-R^2)(n-1)/n-p-1 
+Where n: Number of rows
+      P: Features 
+
+Conditions for overfitting: Low bias and High variance
+Training: The Model performs better
+Testing: The model does not perform well
+
+Conditions for underfitting: High bias and High variance
+Training: The model does not perform well
+Testing:  The model does not perform well
+
+Conditions for a perfect model: Low bias and Low variance
+
+If we are overcome by overfitting or underfitting, we will use Ridge and Lasso Regression.
+
+# Classification: A classification algorithm is a type of machine learning algorithm used to predict a category or class label for a given input.
+
+Disadvantages of using the best-fit line in classification: 1. Outliers -> Influence the straight line
+                                                            2. Result can be negative(means less than 0) and positive(means greater than 1) 
+So, we prevent all of these things, we squash the line(S-Shape curve), and it is known as the logistic function
+For the S-Shape curve, we are using the sigmoid activation function
+
+Formula for sigmoid activation function: H0(x) = g(0o + 01x1)
+
+Where, g = 1/(1+e^-z)
+       z = (0o + 01x1)
+       e = Euler's number -> A mathematical constant, and the value 2.71828 is used for making smooth curves.
+
+H0(x) = 1/(1+e^-(0o +01x1))
+
+# Difference between Linear Regression and Logistic Regression
+
+Linear Regression: 1. Finding the value of 0o and 01 -> For creating the best-fit line.
+                   2. Here we are using the cost function
+
+Logistic Regression: 1. Finding the value of 0o and 01 -> For creating the best-squash line.
+                     2. Here we are using the log-loss function
+
+# Log-loss function(Binary cross entrophy)
+Formula: -1/m summation [y(i)*log y^(i) + (1 - y(i) )*log y^(i)]
+
+Where m = Number of samples
+      y(i) = actual probability/actual label(0,1)
+      y^(i) = predicted probability/predicted label(0-1)
+
+# Evalaation of model
+
+Confusion matrix: The matrix is divided into four categories: TP, FN, FP, and TN.
+
+FN -> Type-1 error
+FP -> Type-2 error
+
+1. Accuracy: Is the percentage of correct predictions.
+Formula: (TP+TN)/(TP+TN+FP+FN)
+
+2. Precision: It says out of all predicted positives, how many were actual positives.
+              It is used when a false positive is costly(Spam detection).
+Formula: TP/(TP+FP)
+
+3. Recall: It says out of all actual positives, how many were correctly predicted.
+           It is used when a false negative is costly(Disease detection).
+Formula: TP/(TP+FN)
+
+4. F1 score: Harmonic mean of precision and recall.
+             It is used when we want a balance between precision and recall.
+Formula: (2*precision*recall)/(precision+recall)
+
+# K-Nearest Neighbour(KNN): Steps to follow in the KNN algorithm.
+1. Define K-value(the value of k is a hyperparameter)
+2. Calculate the distance from all points(Euclidean distance).
+3. Sort all the distances.
+4. Majority count.
+
+How to decide K-value -> K-value must be an odd number.
+
+# Bayes' Theorem: Formula: P(A|B) = (P(A) * P(B|A))/P(B)
+
+# Decision Tree: For choosing the root node -> Entropy, Information gain.
+
+Structure of making a decision tree:
+1. Start with the data
+2. Choose the best feature to split the data
+3. Make branches
+4. Repeat the process for each branch
+5. Stop when all data is pure, the Max depth is reached
+
+Formula for entropy: -P+log2(P+) - P-log2(P-) 
+
+# Support Vector Machine(SVM): Wx + b = 0 
+where W = slope
+      b = bias
+      x = Point we want to predict
+
+Hyperplane: A line that separates two categories
+Margin: The space between the line and the nearest point
+Support vector: The closest ball to the margin that supports the line.
+
+# Model Tuning: The goal of model tuning is: 
+                1. To find the best combination of hyperparameters
+                2. So that our model performs better on new, unseen data - not just on the training data.
+
+But if we just use random hyperparameters, our model might underfit or overfit, or simply perform poorly.
+
+In short, tuning helps us squeeze out the best possible performance from our model, and that's why it's an essential step before finalizing any ML model. And this is also called hyperparameter tuning.
+
+# Cross-validation: K-fold cross-validation: We are dividing the given data into k parts, and every part will be our testing data, and the remaining data will be training data.
+
+# Hyperparameter Tuning:
+Methods: 1. Manual search
+         2. Grid search CV
+         3. Randomize search
+
+Ensemble Learning:
+
+Types of ensemble learning: 1. Bagging (Bootstrap Aggregation)-> Random Forest
+                            2. Boosting -> Ada Boost, Gradient Boosting, XG Boost
+                            3. Stacking
+
+# Unsupervised Learning: Is a type of Machine learning where the data does not have labels - no "right answer" is given. The model must identify patterns, structure, and relationships within the data independently.
+
+- Goals of Unsupervised learning: 1. Find hidden structure in the data
+                                  2. Group similar data points(Clustering)
+                                  3. Reduce data dimensions while keeping important information(Dimensionally)
+                                  4. Detect outliers/anomalies
+                                  5. Find associations or similarities.
+
+- Common Techniques in Unsupervised Learning
+Clustering -> Grouping similar data points
+Dimensional Reduction -> reducing the number of features(PCA)
+Anomaly Detection -> finding outliers in data
+
+- Why use Unsupervised Learning: 1. To explore and understand data structure
+                                 2. To discover hidden patterns
+                                 3. To reduce the complexity of data
+                                 4. To find anomalies or outliers
+                                 5. To preprocess and improve supervised models (e.g., PCA+ classifier)
+
+- Use Cases of Unsupervised Learning: 1. Customer Segmentation -> group customers by behaviour, spending
+                                      2. Market Segmentation -> group markets and products
+                                      3. Anomaly Detection -> fraud detection, network security
+                                      4. Recommendation System -> find similar users/products
+                                      5. Image Compression -> reduce image size
+                                      6. Medical Data -> find patient group, disease patterns
+                                      7. Preprocessing -> use PCA to improve supervised models
+
+# Clustering: 
+
+1. K-means clustering: 1. Decide n clusters
+                                  2. Initiaiized Centroid
+                                  3. Assign cluster(Eucledian distance)
+                                  4. Reassign the center point
+                                  5. Finish cluster
+K-means clustering is a center-based algorithm
+
+For making the clusters and deciding the k-value, we have to use the Elbow method -> x-axis: Number of clusters
+                                                                                     y-axis: WCCS(Within Cluster Sum of Square Distance)
+
+2. DB Scan: Is a density-based algorithm
+            It is a non-parametric algorithm
+            Here we are calculating the Epislon Distance
+
+# Dimensionality Reduction: 
+- Curse of dimension: 1. Very difficult to find patterns
+                      2. KNN, K-Means, DBScan -> Distance-based algorithm: Fail in high dimensions
+                      3. Increase the storage capacity
+                      4. Increase the model training time
+
+- How to do dimensionality reduction: 1. Feature selection
+                                      2. Feature extraction -> Always some amount of information will be lost, but we can predict the output
+
+Feature extraction: PCA(Principal Component Analysis) -> Here is are formulation Eigen Decomposition
+                    To find the PCA line where maximum variance is getting captured
+
+
+
