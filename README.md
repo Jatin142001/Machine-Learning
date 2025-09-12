@@ -1,6 +1,7 @@
 # Machine Learning & Data Science Projects
 ### This repository showcases my journey of learning and applying Machine Learning concepts step by step — from data exploration to building models, optimizing them, and finally deploying them as a simple web application.
 
+
 ## 📂 Repository Structure
 | File / Folder                                  | Description                                                                                                                       |
 | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -13,6 +14,7 @@
 | **App.py**                                     | Streamlit web app for **Heart Stroke Prediction** powered by Logistic Regression and preprocessing pipeline.                |
 | **heart.csv / insurance.csv / ford.csv**       | Datasets used for EDA and model training.                                                                                         |
 | **columns.pkl / scaler.pkl / LR\_Heart.pkl**   | Pre-trained model artifacts for Streamlit app deployment.                                                                         |
+
 
 ## 🚀 Features
 ### 📊 Data Analysis & Visualization:
@@ -31,6 +33,7 @@
 - Streamlit-based Heart Stroke Prediction App.
 - User-friendly interface with sliders and dropdowns.
 
+
 ## 📌 Requirements
 - Python 3.8+
 - Pandas, NumPy, Matplotlib, Seaborn
@@ -38,15 +41,18 @@
 - Joblib
 - Streamlit
 
+
 ## 🏃 Usage
 - Open the Jupyter notebooks to explore EDA, model building, and tuning.
 - Launch the Streamlit app for real-time heart disease prediction.
 - Experiment with different parameters to see prediction results instantly.
 
+
 ## 📊 Results & Insights
 - EDA revealed significant correlations between features such as cholesterol, blood pressure, and target variables.
 - Ensemble models improved accuracy and robustness compared to single classifiers.
 - Streamlit app allows non-technical users to interact with the model in a simple interface.
+
 
 ## 🔥 Demo
 - You can try the Heart Stroke Prediction App locally.
