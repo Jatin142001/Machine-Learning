@@ -10,7 +10,7 @@
 | **Ensemble Learning.ipynb**                    | Implements ensemble models such as Random Forest, Bagging, Boosting, and Voting Classifiers.                                      |
 | **GridSearchCV.ipynb**                         | Demonstrates hyperparameter tuning using GridSearchCV for model performance optimization.                                         |
 | **Titanic Model.ipynb**                        | End-to-end classification project on the Titanic dataset with data cleaning, feature engineering, model training, and evaluation. |
-| **App.py**                                     | Streamlit web app for **Heart Disease Risk Prediction** powered by Logistic Regression and preprocessing pipeline.                |
+| **App.py**                                     | Streamlit web app for **Heart Stroke Prediction** powered by Logistic Regression and preprocessing pipeline.                |
 | **heart.csv / insurance.csv / ford.csv**       | Datasets used for EDA and model training.                                                                                         |
 | **columns.pkl / scaler.pkl / LR\_Heart.pkl**   | Pre-trained model artifacts for Streamlit app deployment.                                                                         |
 
